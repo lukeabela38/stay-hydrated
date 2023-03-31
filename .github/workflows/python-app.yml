@@ -25,3 +25,16 @@ jobs:
     - name: Execute Python Script
       run: |
         python main.py ${{ secrets.S3_ACCESS_TOKEN }} ${{ secrets.S3_SECRET_ACCESS_TOKEN }}
+    - name: Send email with attachment
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 587
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: Your Regular Reminder to Stay Hydrated!
+        body: file://README.md
+        from: ${{ secrets.EMAIL_USERNAME }}
+        to: ${{ secrets.EMAIL_USERNAME }}
+        attachments: image.png
+
