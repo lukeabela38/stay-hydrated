@@ -24,4 +24,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Execute Python Script
       run: |
-        python main.py {{ secrets.S3_ACCESS_TOKEN }} {{ S3_SECRET_ACCESS_TOKEN }}
+        python main.py ${{ secrets.S3_ACCESS_TOKEN }} ${{ S3_SECRET_ACCESS_TOKEN }}
