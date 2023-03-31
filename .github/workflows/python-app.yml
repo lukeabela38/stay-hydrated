@@ -4,8 +4,8 @@
 name: Python application
 
 on:
-  push:
-    branches: [ "main" ]
+  schedule:
+    - cron: '17 12 * * 3'
 
 jobs:
   build:
@@ -35,6 +35,6 @@ jobs:
         subject: Your Regular Reminder to Stay Hydrated!
         body: file://README.md
         from: ${{ secrets.EMAIL_USERNAME }}
-        to: ${{ secrets.EMAIL_USERNAME }}
+        to: ${{ secrets.RECIPIENT }}
         attachments: image.png
 
