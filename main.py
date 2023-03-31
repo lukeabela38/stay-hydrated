@@ -2,7 +2,6 @@ import boto3, random, cv2, sys
 import numpy as np
 from io import BytesIO
 from PIL import Image
-from smart_open import open
 
 BUCKET: str = 'animals-staying-hydrated'
 
